@@ -20,7 +20,7 @@ const index = ({ navigation }) => {
 			>
 				<Button name="Get Started" />
 			</TouchableOpacity>
-			{/* <SignIn /> */}
+
 			<View
 				style={{
 					justifyContent: "center",

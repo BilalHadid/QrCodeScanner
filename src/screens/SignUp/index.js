@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
 	StyleSheet,
 	Text,
@@ -8,17 +8,13 @@ import {
 	Image,
 	Alert,
 } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import Wrapper from "../../component/Wrapper/index";
 import LogoName from "../../component/LogoName/index";
 import Button from "../../component/Button/index";
-import { useState, version } from "react/cjs/react.development";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
 import { Root, Toast } from "native-base";
 
 import API from "../../api/Api";
-
 
 const index = ({ navigation }) => {
 	const [name, setName] = useState("");
@@ -52,7 +48,6 @@ const index = ({ navigation }) => {
 			})
 				.then((res) => res.json())
 				.then((result) => {
-
 					result.success === true
 						? navigation.navigate("Login")
 						: Toast.show({
@@ -190,33 +185,13 @@ const index = ({ navigation }) => {
 	);
 };
 
-const BoxDetails = ({ heading, plhoder, ps, func }) => {
-	console.log(plhoder, heading);
-	return (
-		<View>
-			<View style={styles.box}>
-				<Text style={{ fontWeight: "bold", fontSize: 15 }}>
-					{heading}
-				</Text>
-				<TextInput
-					secureTextEntry={ps}
-					style={{ fontSize: 15 }}
-					placeholder={plhoder}
-					onChangeText={func}
-				/>
-			</View>
-		</View>
-	);
-};
-
 export default index;
 
 const styles = StyleSheet.create({
 	container: {
 		padding: 30,
-		backgroundColor: "yellow",
-		// alignItems:"center",
 		backgroundColor: "white",
+		// alignItems:"center",
 		width: "100%",
 		height: "80%",
 		borderTopLeftRadius: 30,
